@@ -1,6 +1,6 @@
 <kmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://jboss.org/kie/6.0.0/kmodule">
 
-	<kbase name="test-kbase" default="true" eventProcessingMode="cloud" equalsBehavior="equality" packages="com.rhc.rules">
+	<kbase name="test-kbase" default="true" eventProcessingMode="cloud" equalsBehavior="equality" packages="com.redhat.rules">
 		<ksession name="test-ksession" type="stateful" default="true" clockType="realtime" />
 	</kbase>
 
