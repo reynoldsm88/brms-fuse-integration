@@ -6,8 +6,17 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>test-kjar</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>kjar</packaging>
 
+	<dependencies>
+		<dependency>
+			<groupId>com.redhat</groupId>
+			<artifactId>brms-fuse-model</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>jar</type>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
@@ -31,7 +40,7 @@
 									<pluginExecutionFilter>
 										<groupId>org.kie</groupId>
 										<artifactId>kie-maven-plugin</artifactId>
-										<versionRange>[${drools.version},)</versionRange>
+										<versionRange>${drools.version}</versionRange>
 										<goals>
 											<goal>build</goal>
 										</goals>

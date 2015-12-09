@@ -5,31 +5,9 @@
 		<artifactId>brms-fuse-integration</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>brms-camel-client</artifactId>
-	<groupId>com.redhat</groupId>
+	<artifactId>brms-fuse-model</artifactId>
 	<packaging>bundle</packaging>
-
-	<dependencies>
-		<dependency>
-			<groupId>com.redhat</groupId>
-			<artifactId>brms-service</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.redhat</groupId>
-			<artifactId>brms-fuse-model</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-blueprint</artifactId>
-		</dependency>
-	</dependencies>
-
+	
 	<build>
 		<defaultGoal>install</defaultGoal>
 		<plugins>
@@ -47,19 +25,16 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Bundle-SymbolicName>brms-camel-client</Bundle-SymbolicName>
+						<Bundle-SymbolicName>brms-fuse-model</Bundle-SymbolicName>
 						<Import-Package>
-							org.apache.camel.builder,
-							org.apache.camel.model,
-							org.osgi.service.blueprint,
-							com.redhat.drools.camel.api,
-							com.redhat.drools.camel.model
 						</Import-Package>
 						<Export-Package>
+							com.redhat.drools.camel.model
 						</Export-Package>
 					</instructions>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+
 </project>

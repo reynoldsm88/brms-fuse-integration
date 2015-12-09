@@ -6,16 +6,20 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>brms-service</artifactId>
+	<packaging>bundle</packaging>
 
 	<dependencies>
 
 		<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-core</artifactId>
+			<groupId>com.redhat</groupId>
+			<artifactId>brms-fuse-model</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>jar</type>
 		</dependency>
+
 		<dependency>
 			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-spring</artifactId>
+			<artifactId>camel-core</artifactId>
 		</dependency>
 
 		<dependency>
@@ -39,13 +43,9 @@
 			<artifactId>kie-internal</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.kie</groupId>
-			<artifactId>kie-ci</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.kie</groupId>
-			<artifactId>kie-spring</artifactId>
-		</dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kie-ci</artifactId>
+        </dependency>
 		<dependency>
 			<groupId>org.jbpm</groupId>
 			<artifactId>jbpm-flow</artifactId>
@@ -54,6 +54,54 @@
 			<groupId>org.jbpm</groupId>
 			<artifactId>jbpm-bpmn2</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-blueprint</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-test-blueprint</artifactId>
+		</dependency>
 	</dependencies>
+
+	<build>
+		<defaultGoal>install</defaultGoal>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>2.3.7</version>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Bundle-SymbolicName>brms-service</Bundle-SymbolicName>
+						<Import-Package>
+							org.kie.api,
+							org.kie.api.builder,
+							org.kie.api.runtime,
+							org.kie.api.command,
+							org.kie.internal.command,
+							org.osgi.service.blueprint,
+							com.redhat.drools.camel.model
+						</Import-Package>
+						<Export-Package>
+							com.redhat.drools.camel.api
+						</Export-Package>
+						<Private-Package>
+						      com.redhat.drools.camel.beans,
+						      com.redhat.drools.camel.api.impl
+						</Private-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
