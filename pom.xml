@@ -13,7 +13,8 @@
 	</modules>
 
 	<properties>
-		<drools.version>6.3.0.Final</drools.version>
+		<java.version>1.7</java.version>
+		<drools.version>6.4.0-SNAPSHOT</drools.version>
 		<spring.version>3.2.15.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
 		<jcl.over.slf4j.version>1.7.12</jcl.over.slf4j.version>
@@ -136,8 +137,8 @@
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
 		</plugins>

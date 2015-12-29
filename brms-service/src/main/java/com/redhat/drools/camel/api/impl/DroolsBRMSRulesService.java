@@ -3,7 +3,11 @@ package com.redhat.drools.camel.api.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.kie.api.KieServices;
 import org.kie.api.command.Command;
+import org.kie.api.definition.KiePackage;
+import org.kie.api.definition.rule.Rule;
+import org.kie.api.logger.KieRuntimeLogger;
 import org.kie.api.runtime.KieSession;
 import org.kie.internal.command.CommandFactory;
 
@@ -19,19 +23,24 @@ public class DroolsBRMSRulesService implements RulesService {
     public RulesResponse execute( RulesRequest request ) {
         List<Command> commands = new ArrayList<Command>();
 
-        commands.add( CommandFactory.newInsertElements( request.getFacts() ) );
-        if ( request.getProcessName() != null ) {
+        KieSession kSession = kieSessionService.getNamedKieSession( request.getKieSession() );
+
+        commands.add( CommandFactory.newEnableAuditLog( "/home/developer", "audit" ) );
+
+        if ( request.getProcessName() != null && !"".equals( request.getProcessName() ) ) {
             commands.add( CommandFactory.newStartProcess( request.getProcessName() ) );
         }
+
         commands.add( CommandFactory.newInsertElements( request.getFacts() ) );
         commands.add( CommandFactory.newFireAllRules() );
-
-        KieSession kSession = kieSessionService.getNamedKieSession( request.getKieSession() );
 
         kSession.execute( CommandFactory.newBatchExecution( commands ) );
 
         RulesResponse response = request.getResponse();
         response.processResults( kSession );
+
+        kSession.dispose();
+
         return response;
     }
 

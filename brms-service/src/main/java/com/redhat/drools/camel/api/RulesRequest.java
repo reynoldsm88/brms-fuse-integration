@@ -1,7 +1,6 @@
 package com.redhat.drools.camel.api;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public abstract class RulesRequest {
@@ -11,14 +10,13 @@ public abstract class RulesRequest {
     protected List<Object> facts;
     protected RulesResponse response;
 
-    protected RulesRequest( String kieSession, String processName, List<Object> facts ) {
+    protected RulesRequest( String kieSession, String processName, List<? extends Object> facts ) {
+        this.facts = new ArrayList<Object>();
         this.kieSession = kieSession;
         this.processName = processName;
-        if ( this.facts == null ) {
-            this.facts = new ArrayList<Object>();
-        }
-        else {
-            this.facts = facts;
+
+        for ( Object o : facts ) {
+            this.facts.add( o );
         }
     }
 

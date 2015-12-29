@@ -43,9 +43,9 @@
 			<artifactId>kie-internal</artifactId>
 		</dependency>
 		<dependency>
-            <groupId>org.kie</groupId>
-            <artifactId>kie-ci</artifactId>
-        </dependency>
+			<groupId>org.kie</groupId>
+			<artifactId>kie-ci</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.jbpm</groupId>
 			<artifactId>jbpm-flow</artifactId>
@@ -68,13 +68,6 @@
 		<defaultGoal>install</defaultGoal>
 		<plugins>
 			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
 				<version>2.3.7</version>
@@ -83,6 +76,11 @@
 					<instructions>
 						<Bundle-SymbolicName>brms-service</Bundle-SymbolicName>
 						<Import-Package>
+							org.kie.api.runtime.rule,
+							org.kie.api.definition.rule,
+							org.kie.api.definition,
+							org.kie.api.event,
+							org.kie.api.logger,
 							org.kie.api,
 							org.kie.api.builder,
 							org.kie.api.runtime,
@@ -94,10 +92,6 @@
 						<Export-Package>
 							com.redhat.drools.camel.api
 						</Export-Package>
-						<Private-Package>
-						      com.redhat.drools.camel.beans,
-						      com.redhat.drools.camel.api.impl
-						</Private-Package>
 					</instructions>
 				</configuration>
 			</plugin>

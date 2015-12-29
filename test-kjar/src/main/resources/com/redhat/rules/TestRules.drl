@@ -12,9 +12,15 @@ import com.redhat.drools.camel.model.MyOtherModelObj;
 
 rule "Your First Rule"
     when
-        MyModelObj( $value : value )
+        MyModelObj()
     then
         System.err.println( "here" );
-        insert( new MyOtherModelObj( $value ) );
 
+end
+
+rule "Test"
+    when
+        $o : Object()
+    then
+        System.err.println( $o.getClass() );
 end

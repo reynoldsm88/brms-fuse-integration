@@ -2,6 +2,8 @@ package com.redhat.drools.camel.api;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -11,8 +13,9 @@ import org.kie.api.runtime.KieSession;
 
 public abstract class RulesResponse {
 
-    protected Set<Class<?>> resultsClasses;
-    private Map<Class<?>, Collection<Object>> results;
+    protected Set<Class<?>> resultsClasses = new HashSet<Class<?>>();
+
+    private Map<Class<?>, Collection<Object>> results = new HashMap<Class<?>, Collection<Object>>();
 
     public Collection<Object> getResults( Class<?> clazz ) {
         return results.get( clazz );

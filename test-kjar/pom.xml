@@ -6,7 +6,6 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>test-kjar</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<packaging>kjar</packaging>
 
 	<dependencies>
