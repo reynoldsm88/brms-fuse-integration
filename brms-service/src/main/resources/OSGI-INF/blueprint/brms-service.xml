@@ -9,6 +9,16 @@
 		<argument value="0.0.1-SNAPSHOT" />
 	</bean>
 
+	 <!-- JMX Configuration
+    <bean id="mbeanRegistrer" class="org.apache.karaf.management.MBeanRegistrer" init-method="init">
+        <property name="bundleContext" ref="blueprintBundleContext" />
+        <property name="mbeans">
+            <map>
+                <entry value="com.redhat:type=admin,name=KieScannerAdminBean" key-ref="kieSessionService" />
+            </map>
+        </property>
+    </bean>
+-->
 	<bean id="droolsService" class="com.redhat.drools.camel.api.impl.DroolsBRMSRulesService">
 		<property name="kieSessionService" ref="kieSessionService" />
 	</bean>
