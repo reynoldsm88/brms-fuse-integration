@@ -3,11 +3,7 @@ package com.redhat.drools.camel.api.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.kie.api.KieServices;
 import org.kie.api.command.Command;
-import org.kie.api.definition.KiePackage;
-import org.kie.api.definition.rule.Rule;
-import org.kie.api.logger.KieRuntimeLogger;
 import org.kie.api.runtime.KieSession;
 import org.kie.internal.command.CommandFactory;
 
@@ -25,7 +21,7 @@ public class DroolsBRMSRulesService implements RulesService {
 
         KieSession kSession = kieSessionService.getNamedKieSession( request.getKieSession() );
 
-        commands.add( CommandFactory.newEnableAuditLog( "/home/developer", "audit" ) );
+        commands.add( CommandFactory.newEnableAuditLog( "/home/michael", "audit" ) );
 
         if ( request.getProcessName() != null && !"".equals( request.getProcessName() ) ) {
             commands.add( CommandFactory.newStartProcess( request.getProcessName() ) );

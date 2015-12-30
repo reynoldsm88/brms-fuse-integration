@@ -1,5 +1,5 @@
 //created on: Dec 3, 2015
-package com.redhat.rules
+package com.redhat.rules;
 
 //list any import classes here.
 import com.redhat.drools.camel.model.MyModelObj;
@@ -18,9 +18,11 @@ rule "Your First Rule"
 
 end
 
+/**
 rule "Test"
     when
         $o : Object()
     then
         System.err.println( $o.getClass() );
 end
+*/

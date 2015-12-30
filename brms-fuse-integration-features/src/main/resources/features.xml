@@ -9,8 +9,8 @@
 		<feature version="${drools.version}">drools-module</feature>
 		<feature version="${drools.version}">kie</feature>
 		<feature version="${drools.version}">kie-ci</feature>
-		<bundle dependency="true">mvn:com.redhat/brms-fuse-model/0.0.1-SNAPSHOT</bundle>
-		<bundle dependency="true">mvn:com.redhat/brms-service/0.0.1-SNAPSHOT</bundle>
+		<bundle start-level="80" dependency="true">mvn:com.redhat/brms-fuse-model/0.0.1-SNAPSHOT</bundle>
+		<bundle start-level="90" dependency="true">mvn:com.redhat/brms-service/0.0.1-SNAPSHOT</bundle>
 	</feature>
 
 	<feature name="brms-camel-client" version="${project.version}">
