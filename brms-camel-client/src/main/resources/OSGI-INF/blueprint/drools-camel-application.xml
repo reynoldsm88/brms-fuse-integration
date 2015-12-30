@@ -5,10 +5,6 @@
 
 	<reference id="droolsService" interface="com.redhat.drools.camel.api.RulesService" />
 
-	<bean id="app" class="com.redhat.drools.camel.app.App">
-		<property name="service" ref="droolsService" />
-	</bean>
-	
 	<bean id="droolsCamelClientRouteBuilder" class="com.redhat.drools.camel.route.DroolsCamelClientRouteBuilder">
 	   <property name="rulesService" ref="droolsService" />
 	</bean>

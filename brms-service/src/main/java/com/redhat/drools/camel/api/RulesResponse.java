@@ -37,4 +37,17 @@ public abstract class RulesResponse {
         }
     }
 
+    @Override
+    public String toString() {
+        StringBuffer buffer = new StringBuffer();
+        for ( Class<?> clazz : resultsClasses ) {
+            buffer.append( clazz.getName() + " : " );
+            for ( Object o : results.get( clazz ) ) {
+                buffer.append( "Result[ " + o.toString() + " ] " );
+            }
+        }
+
+        return buffer.toString();
+    }
+
 }
