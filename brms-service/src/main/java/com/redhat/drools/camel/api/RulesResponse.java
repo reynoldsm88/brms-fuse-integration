@@ -11,15 +11,13 @@ import java.util.Set;
 import org.kie.api.runtime.ClassObjectFilter;
 import org.kie.api.runtime.KieSession;
 
+import com.redhat.drools.camel.model.MyOtherModelObj;
+
 public abstract class RulesResponse {
 
-    protected Set<Class<?>> resultsClasses = new HashSet<Class<?>>();
+    protected final Set<Class<?>> resultsClasses = new HashSet<Class<?>>();
 
-    private Map<Class<?>, Collection<Object>> results = new HashMap<Class<?>, Collection<Object>>();
-
-    public Collection<Object> getResults( Class<?> clazz ) {
-        return results.get( clazz );
-    }
+    protected final Map<Class<?>, Collection<Object>> results = new HashMap<Class<?>, Collection<Object>>();
 
     protected void addResultClass( Class<?> clazz ) {
         this.resultsClasses.add( clazz );

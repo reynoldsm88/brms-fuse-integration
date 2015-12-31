@@ -18,7 +18,7 @@
 		<spring.version>3.2.15.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
 		<jcl.over.slf4j.version>1.7.12</jcl.over.slf4j.version>
-		<camel.version>2.12.5</camel.version>
+		<camel.version>2.13.4</camel.version>
 		<junit.version>4.11</junit.version>
 	</properties>
 
@@ -39,9 +39,6 @@
 				<artifactId>camel-test-blueprint</artifactId>
 				<version>${camel.version}</version>
 			</dependency>
-
-
-
 			<dependency>
 				<groupId>org.drools</groupId>
 				<artifactId>drools-core</artifactId>

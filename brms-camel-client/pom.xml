@@ -42,6 +42,7 @@
 					<instructions>
 						<Bundle-SymbolicName>brms-camel-client</Bundle-SymbolicName>
 						<Import-Package>
+							org.apache.camel,
 							org.apache.activemq.camel.component,
 							org.apache.camel.builder,
 							org.apache.camel.model,
