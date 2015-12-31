@@ -15,7 +15,7 @@ public class DroolsCamelClientRouteBuilder extends RouteBuilder {
         from("activemq:queue:myQueue")
                 .bean( new DroolsRequestPrepBean() )
                 .bean(rulesService, "execute" )
-                .setBody( simple( "${body.getMyOthjerModelObjResults}" ) )
+                .setBody( simple( "${body.getMyOtherModelObjResults}" ) )
                 .log( "${body}" )
             .to("mock:end");
         //@formatter:on

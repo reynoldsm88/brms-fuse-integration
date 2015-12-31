@@ -1,14 +1,13 @@
-package com.redhat.drools.camel;
+package com.redhat.drools.camel.api;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-import com.redhat.drools.camel.api.RulesResponse;
 import com.redhat.drools.camel.model.MyOtherModelObj;
 
-public class MyDroolsResponse extends RulesResponse {
+public class TestRuleResponse extends RulesResponse {
 
-    public MyDroolsResponse() {
+    public TestRuleResponse() {
         this.addResultClass( MyOtherModelObj.class );
     }
 
@@ -20,5 +19,4 @@ public class MyDroolsResponse extends RulesResponse {
 
         return myOtherModelObjResults;
     }
-
 }

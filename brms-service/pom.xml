@@ -105,6 +105,9 @@
 						<Export-Package>
 							com.redhat.drools.camel.api
 						</Export-Package>
+						<Export-Service>
+							com.redhat.drools.camel.api.RulesService
+						</Export-Service>
 					</instructions>
 				</configuration>
 			</plugin>

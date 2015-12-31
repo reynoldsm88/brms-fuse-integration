@@ -3,12 +3,13 @@
 	xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0
            http://drools.org/schema/kie-aries-blueprint/1.0.0 http://drools.org/schema/kie-aries-blueprint/1.0.0">
 
+
 	<bean id="kieSessionService" class="com.redhat.drools.camel.beans.KieSessionService">
 		<argument value="com.redhat" />
 		<argument value="test-kjar" />
 		<argument value="0.0.1-SNAPSHOT" />
 	</bean>
-
+	
 	 <!-- JMX Configuration
     <bean id="mbeanRegistrer" class="org.apache.karaf.management.MBeanRegistrer" init-method="init">
         <property name="bundleContext" ref="blueprintBundleContext" />
@@ -18,11 +19,14 @@
             </map>
         </property>
     </bean>
--->
+    -->
+
+    
 	<bean id="droolsService" class="com.redhat.drools.camel.api.impl.DroolsBRMSRulesService">
 		<property name="kieSessionService" ref="kieSessionService" />
 	</bean>
-
+    
+    
 	<service ref="droolsService" interface="com.redhat.drools.camel.api.RulesService" />
-
+	
 </blueprint>
