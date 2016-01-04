@@ -5,11 +5,8 @@
 
 
 
-	<reference id="rulesService" interface="com.redhat.drools.camel.api.RulesService" />
-
-
 	<bean id="droolsTestRouteBuilder" class="com.redhat.drools.camel.api.test.route.DroolsServiceTestRouteBuilder">
-		<property name="rulesService" ref="rulesService" />
+		<property name="rulesService" ref="droolsService" />
 	</bean>
 
 

@@ -23,20 +23,21 @@ public class DroolsBRMSServiceTest extends CamelBlueprintTestSupport {
         return "OSGI-INF/blueprint/brms-service.xml,OSGI-INF/blueprint/test-camel-context.xml";
     }
 
-    @Override
-    @SuppressWarnings ( "rawtypes")
-    protected void addServicesOnStartup( Map<String, KeyValueHolder<Object, Dictionary>> services ) {
-        // this is ridiculous that you cannot wire it in with blueprint itself
-        KieSessionService kieSessionService = new KieSessionService( "com.redhat", "test-kjar", "0.0.1-SNAPSHOT" );
-        DroolsBRMSRulesService service = new DroolsBRMSRulesService();
-        service.setKieSessionService( kieSessionService );
-
-        KeyValueHolder serviceHolder = new KeyValueHolder( service, null );
-        services.put( RulesService.class.getName(), serviceHolder );
-    }
+    /*
+     * @Override
+     * 
+     * @SuppressWarnings ( "rawtypes") protected void addServicesOnStartup( Map<String,
+     * KeyValueHolder<Object, Dictionary>> services ) { // this is ridiculous that you cannot wire
+     * it in with blueprint itself KieSessionService kieSessionService = new KieSessionService(
+     * "com.redhat", "test-kjar", "0.0.1-SNAPSHOT" ); DroolsBRMSRulesService service = new
+     * DroolsBRMSRulesService(); service.setKieSessionService( kieSessionService );
+     * 
+     * KeyValueHolder serviceHolder = new KeyValueHolder( service, null ); services.put(
+     * RulesService.class.getName(), serviceHolder ); }
+     */
 
     @Test
-    @SuppressWarnings ( "unchecked")
+    @SuppressWarnings( "unchecked" )
     public void test() throws InterruptedException {
         ProducerTemplate template = context.createProducerTemplate();
 
@@ -46,7 +47,7 @@ public class DroolsBRMSServiceTest extends CamelBlueprintTestSupport {
         template.sendBody( "direct:start", new MyModelObj( "value" ) );
 
         Exchange recieved = mock.assertExchangeReceived( 0 );
-        
+
         ArrayList<MyOtherModelObj> results = (ArrayList<MyOtherModelObj>) recieved.getIn().getBody();
         MyOtherModelObj expected = new MyOtherModelObj( "value" );
         assertTrue( results.contains( expected ) );
