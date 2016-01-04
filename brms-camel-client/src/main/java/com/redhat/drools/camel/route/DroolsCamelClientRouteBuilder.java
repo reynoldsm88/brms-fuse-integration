@@ -12,7 +12,7 @@ public class DroolsCamelClientRouteBuilder extends RouteBuilder {
     @Override
     public void configure() throws Exception {
         //@formatter:off
-        from("activemq:queue:myQueue")
+        from( "activemq:queue:myQueue" ).routeId( "brms-camel-client" )
                 .bean( new DroolsRequestPrepBean() )
                 .bean(rulesService, "execute" )
                 .setBody( simple( "${body.getMyOtherModelObjResults}" ) )
