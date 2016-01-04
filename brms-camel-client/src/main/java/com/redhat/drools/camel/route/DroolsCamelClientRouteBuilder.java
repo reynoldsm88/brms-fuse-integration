@@ -14,10 +14,10 @@ public class DroolsCamelClientRouteBuilder extends RouteBuilder {
         //@formatter:off
         from( "activemq:queue:myQueue" ).routeId( "brms-camel-client" )
                 .bean( new DroolsRequestPrepBean() )
-                .bean(rulesService, "execute" )
+                .bean( rulesService, "execute" )
                 .setBody( simple( "${body.getMyOtherModelObjResults}" ) )
                 .log( "${body}" )
-            .to("mock:end");
+            .to( "mock:end" );
         //@formatter:on
     }
 

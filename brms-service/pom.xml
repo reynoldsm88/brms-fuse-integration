@@ -17,13 +17,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.redhat</groupId>
-			<artifactId>test-kjar</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-core</artifactId>
 		</dependency>
