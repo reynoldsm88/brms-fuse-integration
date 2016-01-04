@@ -2,11 +2,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.redhat</groupId>
-		<artifactId>brms-fuse-integration</artifactId>
+		<artifactId>applications</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>brms-camel-client</artifactId>
+
 	<groupId>com.redhat</groupId>
+	<artifactId>brms-camel-client</artifactId>
 	<packaging>bundle</packaging>
 
 	<dependencies>
@@ -14,6 +15,12 @@
 			<groupId>com.redhat</groupId>
 			<artifactId>brms-service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.redhat</groupId>
+			<artifactId>test-kjar</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.redhat</groupId>

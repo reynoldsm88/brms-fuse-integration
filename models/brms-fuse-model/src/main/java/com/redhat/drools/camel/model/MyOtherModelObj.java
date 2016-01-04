@@ -39,7 +39,7 @@ public class MyOtherModelObj {
 
     @Override
     public String toString() {
-        return "MyOtherModelObj [value=" + value + "]";
+        return "MyOtherModelObj [value=" + value + " ]";
     }
 
 }

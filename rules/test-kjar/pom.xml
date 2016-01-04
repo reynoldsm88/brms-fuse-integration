@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.redhat</groupId>
-		<artifactId>brms-fuse-integration</artifactId>
+		<artifactId>rules</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>test-kjar</artifactId>
@@ -55,4 +55,5 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+	<version>0.0.1-SNAPSHOT</version>
 </project>

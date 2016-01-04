@@ -5,11 +5,10 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<modules>
-		<module>brms-camel-client</module>
-		<module>brms-service</module>
-		<module>test-kjar</module>
-		<module>brms-fuse-integration-features</module>
-		<module>brms-fuse-model</module>
+		<module>models</module>
+		<module>rules</module>
+		<module>common</module>
+		<module>applications</module>
 	</modules>
 
 	<properties>

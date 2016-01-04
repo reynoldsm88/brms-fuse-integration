@@ -14,7 +14,6 @@ rule "Your First Rule"
     when
         MyModelObj( $value : value )
     then
-        System.err.println( $value );
         insert( new MyOtherModelObj( $value ) );
 
 end

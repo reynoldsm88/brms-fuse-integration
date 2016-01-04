@@ -2,9 +2,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.redhat</groupId>
-		<artifactId>brms-fuse-integration</artifactId>
+		<artifactId>applications</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
+
 	<artifactId>brms-fuse-integration-features</artifactId>
 	<build>
 		<defaultGoal>install</defaultGoal>
