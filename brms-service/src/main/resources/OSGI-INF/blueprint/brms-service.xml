@@ -4,29 +4,16 @@
            http://drools.org/schema/kie-aries-blueprint/1.0.0 http://drools.org/schema/kie-aries-blueprint/1.0.0">
 
 
-	<bean id="kieSessionService" class="com.redhat.drools.camel.beans.KieSessionService">
+	<bean id="kieSessionService" class="com.redhat.drools.camel.beans.jmx.impl.JMXPushKieSessionService">
 		<argument value="com.redhat" />
 		<argument value="test-kjar" />
 		<argument value="0.0.1-SNAPSHOT" />
 	</bean>
-	
-	 <!-- JMX Configuration
-    <bean id="mbeanRegistrer" class="org.apache.karaf.management.MBeanRegistrer" init-method="init">
-        <property name="bundleContext" ref="blueprintBundleContext" />
-        <property name="mbeans">
-            <map>
-                <entry value="com.redhat:type=admin,name=KieScannerAdminBean" key-ref="kieSessionService" />
-            </map>
-        </property>
-    </bean>
-    -->
 
-    
 	<bean id="droolsService" class="com.redhat.drools.camel.api.impl.DroolsBRMSRulesService">
 		<property name="kieSessionService" ref="kieSessionService" />
 	</bean>
-    
-    
+
 	<service ref="droolsService" interface="com.redhat.drools.camel.api.RulesService" />
-	
+
 </blueprint>

@@ -11,6 +11,7 @@ import com.redhat.drools.camel.api.RulesRequest;
 import com.redhat.drools.camel.api.RulesResponse;
 import com.redhat.drools.camel.api.RulesService;
 import com.redhat.drools.camel.beans.KieSessionService;
+import com.redhat.drools.camel.beans.jmx.impl.JMXPushKieSessionService;
 
 public class DroolsBRMSRulesService implements RulesService {
 
@@ -19,7 +20,7 @@ public class DroolsBRMSRulesService implements RulesService {
     public RulesResponse execute( RulesRequest request ) {
         List<Command> commands = new ArrayList<Command>();
 
-        KieSession kSession = kieSessionService.getNamedKieSession( request.getKieSession() );
+        KieSession kSession = kieSessionService.getKieSessionFor( request.getKieSession() );
 
         commands.add( CommandFactory.newEnableAuditLog( "/home/michael", "audit" ) );
 

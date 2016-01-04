@@ -18,13 +18,11 @@ public class DroolsServiceTestRouteBuilder extends RouteBuilder {
         //@formatter:off
         from( "direct:start" )
                 .process( new Processor(){
-    
                         @Override
                         public void process( Exchange exchange ) throws Exception {
                             TestRuleRequest request = new TestRuleRequest( "test-ksession", Arrays.asList( exchange.getIn().getBody() ) );
                             exchange.getIn().setBody( request );
                         }
-                    
                     }   )
                 .bean( rulesService )
                 .setBody( simple( "${body.myOtherModelObjResults}" ) )

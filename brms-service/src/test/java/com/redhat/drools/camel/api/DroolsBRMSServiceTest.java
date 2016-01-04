@@ -1,18 +1,13 @@
 package com.redhat.drools.camel.api;
 
 import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.Map;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.blueprint.CamelBlueprintTestSupport;
-import org.apache.camel.util.KeyValueHolder;
 import org.junit.Test;
 
-import com.redhat.drools.camel.api.impl.DroolsBRMSRulesService;
-import com.redhat.drools.camel.beans.KieSessionService;
 import com.redhat.drools.camel.model.MyModelObj;
 import com.redhat.drools.camel.model.MyOtherModelObj;
 

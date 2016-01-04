@@ -88,6 +88,8 @@
 					<instructions>
 						<Bundle-SymbolicName>brms-service</Bundle-SymbolicName>
 						<Import-Package>
+							javax.management,
+							org.apache.karaf.management,
 							org.kie.api.runtime.rule,
 							org.kie.api.definition.rule,
 							org.kie.api.definition,
