@@ -8,12 +8,9 @@ import com.redhat.drools.camel.model.MyOtherModelObj;
 //declare any global variables here
 
 
-
-
 rule "Your First Rule"
     when
         MyModelObj( $value : value )
     then
         insert( new MyOtherModelObj( $value ) );
-
 end
