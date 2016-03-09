@@ -3,6 +3,7 @@ package com.redhat.test.application.xlate.routes;
 import org.apache.camel.builder.RouteBuilder;
 
 import com.redhat.drools.camel.api.RulesService;
+import com.redhat.test.application.drools.request.TestAppDroolsResponse;
 import com.redhat.test.application.xlate.util.TestAppDroolsRequestHelper;
 
 public class XlateRouteBuilder extends RouteBuilder {
@@ -14,8 +15,9 @@ public class XlateRouteBuilder extends RouteBuilder {
     public void configure() throws Exception {
         //@formatter:off
         from( "vm:test-application-xlate" ).id( "test-application-xlate" ).routeId( "test-application-xlate" )
-                .bean( droolsPrepBean, "prepare" ).log( "1) ${body}" )
-                .bean( rulesService, "execute" ).log( "2) ${body}" )
+                .setHeader( "com.redhat.drools.camel.rules.response" ).constant( new TestAppDroolsResponse() ) 
+                .setHeader( "com.redhat.drools.camel.ksession", simple( "test-ksession" ) )
+                .bean( rulesService, "executeNew" ).log( "2) ${body}" )
                 .setBody( simple( "${body.getMyOtherModelObjResults}" ) )
                 .log( "3) ${body}" )
             .to( "vm:test-application-outbound" );

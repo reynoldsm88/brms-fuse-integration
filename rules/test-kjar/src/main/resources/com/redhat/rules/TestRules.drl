@@ -18,7 +18,6 @@ rule "Michael is awesome"
 	when
 		MyModelObj( $value : value, $number : number, value == "Michael" )
 	then
-		System.out.println( "Here" );
 		insert( new MyOtherModelObj( $value, $number * 100 ) );
 end
 
@@ -26,7 +25,14 @@ rule "Goldsmith is not"
 	when
 		MyModelObj( $value : value, $number : number, value == "Goldsmith" )
 	then
-		System.out.println( "Here" );
 		insert( new MyOtherModelObj( $value, $number * -100 ) );
+end
+
+
+rule "Javon is doo doo"
+	when
+		MyModelObj( value == "Javon" )
+	then
+		insert( new MyOtherModelObj( "doo doo", Integer.MIN_VALUE ) );
 end
 		
