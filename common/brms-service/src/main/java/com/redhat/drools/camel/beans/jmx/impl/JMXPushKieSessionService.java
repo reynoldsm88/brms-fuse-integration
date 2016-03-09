@@ -20,7 +20,7 @@ public class JMXPushKieSessionService extends StandardMBean implements KieSessio
         super( KieSessionService.class );
 
         kServices = KieServices.Factory.get();
-        kContainer = kServices.newKieContainer( kServices.newReleaseId( groupId, artifactId, version ) );
+        kContainer = kServices.newKieContainer( kServices.newReleaseId( groupId, artifactId, version ), this.getClass().getClassLoader() );
         kScanner = kServices.newKieScanner( kContainer );
 
         loadRules();

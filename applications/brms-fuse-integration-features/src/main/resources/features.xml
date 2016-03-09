@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="brms-fuse-integration-features"
+<features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="brms-fuse-integration-features"
 	xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.0.0 http://karaf.apache.org/xmlns/features/v1.0.0">
 
 	<repository>mvn:org.drools/drools-karaf-features/${drools.version}/xml/features</repository>
@@ -22,8 +21,11 @@
 	<feature name="test-application" version="${project.version}">
 		<feature version="${activemq.camel.version}">activemq</feature>
 		<feature version="${activemq.camel.version}">activemq-client</feature>
-		<bundle>mvn:com.redhat/test-application-inbound/${project.version}</bundle>
+		<feature version="${project.version}">brms-integration-bundle</feature>
 		<bundle>mvn:com.redhat/brms-fuse-model/0.0.1-SNAPSHOT</bundle>
+		<bundle>mvn:com.redhat/test-application-inbound/${project.version}</bundle>
+		<bundle>mvn:com.redhat/test-application-xlate/${project.version}</bundle>
+		<bundle>mvn:com.redhat/test-application-outbound/${project.version}</bundle>
 	</feature>
 
 </features>

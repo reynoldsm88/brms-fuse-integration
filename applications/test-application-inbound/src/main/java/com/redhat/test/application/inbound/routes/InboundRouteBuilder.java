@@ -1,4 +1,4 @@
-package com.redhat.test.application.routes;
+package com.redhat.test.application.inbound.routes;
 
 import org.apache.camel.builder.RouteBuilder;
 
@@ -10,13 +10,13 @@ public class InboundRouteBuilder extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-        System.err.println( "starting inbound route" );
         //@formatter:off
         from("activemq:queue:test-application-inbound")
                 .routeId( "test-application-inbound" )
                 .id( "test-application-inbound" )
-                .bean(parser)
-            .to( "mock:test-application-xlate" );
+                .bean( parser )
+                .log( "${body}" )
+            .to( "vm:test-application-xlate" );
         //@formatter:on
 
     }

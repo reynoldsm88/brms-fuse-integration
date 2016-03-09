@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:kie="http://drools.org/schema/kie-aries-blueprint/1.0.0"
+	xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0
+           http://drools.org/schema/kie-aries-blueprint/1.0.0 http://drools.org/schema/kie-aries-blueprint/1.0.0">
+
+	<reference id="droolsService" interface="com.redhat.drools.camel.api.RulesService" />
+
+	<bean id="droolsRequestHelper" class="com.redhat.test.application.xlate.util.TestAppDroolsRequestHelper" />
+
+	<bean id="xlateRouteBuilder" class="com.redhat.test.application.xlate.routes.XlateRouteBuilder">
+		<property name="rulesService" ref="droolsService" />
+		<property name="droolsPrepBean" ref="droolsRequestHelper" />
+	</bean>
+
+	<camelContext xmlns="http://camel.apache.org/schema/blueprint" id="test-application-xlate-context">
+		<routeBuilder ref="xlateRouteBuilder" />
+	</camelContext>
+
+</blueprint>

@@ -56,4 +56,9 @@ public abstract class RulesRequest {
         this.response = response;
     }
 
+    @Override
+    public String toString() {
+        return "RulesRequest [kieSession=" + kieSession + ", processName=" + processName + ", facts=" + facts + ", response=" + response + "]";
+    }
+
 }
