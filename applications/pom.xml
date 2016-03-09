@@ -15,5 +15,8 @@
 	<modules>
 		<module>brms-camel-client</module>
 		<module>brms-fuse-integration-features</module>
+		<module>test-application-inbound</module>
+		<module>test-application-xlate</module>
+		<module>test-application-outbound</module>
 	</modules>
 </project>

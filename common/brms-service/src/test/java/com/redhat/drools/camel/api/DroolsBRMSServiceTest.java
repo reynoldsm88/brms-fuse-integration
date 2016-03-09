@@ -18,19 +18,6 @@ public class DroolsBRMSServiceTest extends CamelBlueprintTestSupport {
         return "OSGI-INF/blueprint/brms-service.xml,OSGI-INF/blueprint/test-camel-context.xml";
     }
 
-    /*
-     * @Override
-     * 
-     * @SuppressWarnings ( "rawtypes") protected void addServicesOnStartup( Map<String,
-     * KeyValueHolder<Object, Dictionary>> services ) { // this is ridiculous that you cannot wire
-     * it in with blueprint itself KieSessionService kieSessionService = new KieSessionService(
-     * "com.redhat", "test-kjar", "0.0.1-SNAPSHOT" ); DroolsBRMSRulesService service = new
-     * DroolsBRMSRulesService(); service.setKieSessionService( kieSessionService );
-     * 
-     * KeyValueHolder serviceHolder = new KeyValueHolder( service, null ); services.put(
-     * RulesService.class.getName(), serviceHolder ); }
-     */
-
     @Test
     @SuppressWarnings( "unchecked" )
     public void test() throws InterruptedException {

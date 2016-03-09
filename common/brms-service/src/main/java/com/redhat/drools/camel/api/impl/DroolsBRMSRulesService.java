@@ -22,7 +22,8 @@ public class DroolsBRMSRulesService implements RulesService {
 
         KieSession kSession = kieSessionService.getKieSessionFor( request.getKieSession() );
 
-        commands.add( CommandFactory.newEnableAuditLog( "/home/michael", "audit" ) );
+        // commands.add( CommandFactory.newEnableAuditLog( "/home/michael",
+        // "audit" ) );
 
         if ( request.getProcessName() != null && !"".equals( request.getProcessName() ) ) {
             commands.add( CommandFactory.newStartProcess( request.getProcessName() ) );

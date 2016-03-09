@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.redhat</groupId>
 	<artifactId>brms-fuse-integration</artifactId>
@@ -13,12 +14,20 @@
 
 	<properties>
 		<java.version>1.7</java.version>
-		<drools.version>6.4.0-SNAPSHOT</drools.version>
+		<drools.version>6.3.0.Final-redhat-7</drools.version>
 		<junit.version>4.11</junit.version>
 		<jcl.over.slf4j.version>1.7.12</jcl.over.slf4j.version>
 		<camel.version>2.12.0.redhat-610379</camel.version>
-		<activemq.camel.version>5.12.0</activemq.camel.version>
+		<activemq.camel.version>5.9.0.redhat-610379</activemq.camel.version>
 	</properties>
+
+	<repositories>
+		<repository>
+			<id>RedHat GA</id>
+			<name>RedHat GA</name>
+			<url>https://maven.repository.redhat.com/ga/</url>
+		</repository>
+	</repositories>
 
 	<dependencyManagement>
 		<dependencies>
