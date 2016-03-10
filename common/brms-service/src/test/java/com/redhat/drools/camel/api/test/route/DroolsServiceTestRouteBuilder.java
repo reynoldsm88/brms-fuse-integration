@@ -26,6 +26,7 @@ public class DroolsServiceTestRouteBuilder extends RouteBuilder {
                     }   )
                 .bean( rulesService )
                 .setBody( simple( "${body.myOtherModelObjResults}" ) )
+                .to( "log:test-results-exchange" )
             .to( "mock:result" );
         //@formatter:on
     }

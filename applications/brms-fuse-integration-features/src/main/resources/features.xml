@@ -13,11 +13,6 @@
 		<bundle start-level="90" dependency="true">mvn:com.redhat/brms-service/0.0.1-SNAPSHOT</bundle>
 	</feature>
 
-	<feature name="brms-camel-client" version="${project.version}">
-		<feature version="${project.version}">brms-integration-bundle</feature>
-		<bundle>mvn:com.redhat/brms-camel-client/0.0.1-SNAPSHOT</bundle>
-	</feature>
-
 	<feature name="test-application" version="${project.version}">
 		<feature version="${activemq.camel.version}">activemq</feature>
 		<feature version="${activemq.camel.version}">activemq-client</feature>

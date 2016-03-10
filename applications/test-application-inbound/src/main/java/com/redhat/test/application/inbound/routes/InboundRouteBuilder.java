@@ -2,31 +2,22 @@ package com.redhat.test.application.inbound.routes;
 
 import org.apache.camel.builder.RouteBuilder;
 
-import com.redhat.test.application.parser.CustomFormatParser;
+import com.redhat.drools.camel.model.MyModelObj;
+import com.redhat.test.application.type.converters.StringToModelTypeConverter;
 
 public class InboundRouteBuilder extends RouteBuilder {
 
-    private CustomFormatParser parser;
-
     @Override
     public void configure() throws Exception {
+
+        getContext().getTypeConverterRegistry().addTypeConverter( MyModelObj.class, String.class, new StringToModelTypeConverter() );
+
         //@formatter:off
-        from("activemq:queue:test-application-inbound")
-                .routeId( "test-application-inbound" )
-                .id( "test-application-inbound" )
-                .bean( parser )
+        from("activemq:queue:test-application-inbound").routeId( "test-application-inbound" ).id( "test-application-inbound" )
+                .convertBodyTo( MyModelObj.class )
                 .log( "${body}" )
             .to( "vm:test-application-xlate" );
         //@formatter:on
 
     }
-
-    public CustomFormatParser getParser() {
-        return parser;
-    }
-
-    public void setParser( CustomFormatParser parser ) {
-        this.parser = parser;
-    }
-
 }
