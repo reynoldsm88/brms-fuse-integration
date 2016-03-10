@@ -10,6 +10,7 @@ public class OutboundRouteBuilder extends RouteBuilder {
         from( "vm:test-application-outbound" ).id( "test-application-outbound" ).routeId( "test-application-outbound" )
                 .log( "Message is off to topic" )
             .to( "log:test-application-outbound-exchange-log" )
+                .split().body()
             .to( "activemq:topic:test-application-outbound" );
         
         from("activemq:topic:test-application-outbound").id( "dummy-topic-consumer" ).routeId( "dummy-topic-consumer" )

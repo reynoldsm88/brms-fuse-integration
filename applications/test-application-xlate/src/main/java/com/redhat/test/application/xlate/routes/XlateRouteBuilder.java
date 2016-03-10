@@ -20,6 +20,7 @@ public class XlateRouteBuilder extends RouteBuilder {
                 .bean( rulesService, "executeNew" ).log( "2) ${body}" )
                 .setBody( simple( "${body.getMyOtherModelObjResults}" ) )
                 .log( "3) ${body}" )
+                .removeHeader( "com.redhat.drools.response" )
             .to( "vm:test-application-outbound" );
 //            .to( "vm:test-application-outbound" );
         //@formatter:on

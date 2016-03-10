@@ -29,10 +29,10 @@ rule "Goldsmith is not"
 end
 
 
-rule "Javon is doo doo"
+rule "Javon is best"
 	when
 		MyModelObj( value == "Javon" )
 	then
-		insert( new MyOtherModelObj( "doo doo", Integer.MIN_VALUE ) );
+		insert( new MyOtherModelObj( "best", Integer.MAX_VALUE ) );
 end
 		
