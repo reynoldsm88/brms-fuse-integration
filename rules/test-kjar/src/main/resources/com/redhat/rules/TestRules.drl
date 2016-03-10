@@ -7,32 +7,25 @@ import com.redhat.drools.camel.model.MyOtherModelObj;
 
 //declare any global variables here
 
-rule "Your First Rule"
+rule "Most People are Neutral"
+	salience -100
     when
-        MyModelObj( $value : value, $number : number )
+    	not( exists MyOtherModelObj() )
+        MyModelObj( $value : value )
     then
-        insert( new MyOtherModelObj( $value ) );
+        insert( new MyOtherModelObj( $value, "Default" ) );
 end
 
 rule "Michael is awesome"
 	when
-		MyModelObj( $value : value, $number : number, value == "Michael" )
+		MyModelObj( $value : value, value == "Michael" )
 	then
-		insert( new MyOtherModelObj( $value, $number * 100 ) );
+		insert( new MyOtherModelObj( $value, "Awesome" ) );
 end
 
 rule "Goldsmith is not"
 	when
-		MyModelObj( $value : value, $number : number, value == "Goldsmith" )
+		MyModelObj( $value : value, value == "Goldsmith" )
 	then
-		insert( new MyOtherModelObj( $value, $number * -100 ) );
+		insert( new MyOtherModelObj( $value, "Not Awesome" ) );
 end
-
-
-rule "Javon is best"
-	when
-		MyModelObj( value == "Javon" )
-	then
-		insert( new MyOtherModelObj( "best", Integer.MAX_VALUE ) );
-end
-		

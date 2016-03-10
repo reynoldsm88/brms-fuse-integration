@@ -5,36 +5,41 @@ import java.io.Serializable;
 public class MyOtherModelObj implements Serializable {
 
     private static final long serialVersionUID = 3884511990848967492L;
-    
+
     private final String value;
-    private int number;
+    private String status;
 
     public MyOtherModelObj( String value ) {
         this.value = value;
+        this.status = "Neutral";
     }
 
-    public MyOtherModelObj( String value, int number ) {
+    public MyOtherModelObj( String value, String status ) {
         this.value = value;
-        this.number = number;
+        this.status = status;
     }
 
     public String getValue() {
         return value;
     }
 
-    public int getNumber() {
-        return number;
+    public String getStatus() {
+        return status;
     }
 
-    public void setNumber( int number ) {
-        this.number = number;
+    public void setStatus( String status ) {
+        this.status = status;
     }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }  
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + number;
+        result = prime * result + ( ( status == null ) ? 0 : status.hashCode() );
         result = prime * result + ( ( value == null ) ? 0 : value.hashCode() );
         return result;
     }
@@ -48,7 +53,11 @@ public class MyOtherModelObj implements Serializable {
         if ( getClass() != obj.getClass() )
             return false;
         MyOtherModelObj other = (MyOtherModelObj) obj;
-        if ( number != other.number )
+        if ( status == null ) {
+            if ( other.status != null )
+                return false;
+        }
+        else if ( !status.equals( other.status ) )
             return false;
         if ( value == null ) {
             if ( other.value != null )
@@ -61,7 +70,7 @@ public class MyOtherModelObj implements Serializable {
 
     @Override
     public String toString() {
-        return "MyOtherModelObj [value=" + value + ", number=" + number + "]";
+        return "MyOtherModelObj [value=" + value + ", status=" + status + "]";
     }
 
 }

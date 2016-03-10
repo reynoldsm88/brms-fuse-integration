@@ -43,6 +43,7 @@
 						<Bundle-SymbolicName>test-application-inbound</Bundle-SymbolicName>
 						<Import-Package>
 							org.apache.camel,
+							org.apache.camel.support,
 							org.apache.activemq.camel.component,
 							org.apache.camel.builder,
 							org.apache.camel.model,

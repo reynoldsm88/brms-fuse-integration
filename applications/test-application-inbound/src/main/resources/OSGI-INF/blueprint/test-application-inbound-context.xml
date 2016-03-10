@@ -9,12 +9,9 @@
 		<property name="password" value="admin" />
 	</bean>
 
-	<bean id="messageParser" class="com.redhat.test.application.parser.CustomFormatParser" />
 
-	<bean id="inboundRouteBuilder" class="com.redhat.test.application.inbound.routes.InboundRouteBuilder">
-		<property name="parser" ref="messageParser" />
-	</bean>
-
+	<bean id="inboundRouteBuilder" class="com.redhat.test.application.inbound.routes.InboundRouteBuilder" />
+	
 	<camelContext xmlns="http://camel.apache.org/schema/blueprint" id="test-application-inbound-context">
 		<routeBuilder ref="inboundRouteBuilder" />
 	</camelContext>

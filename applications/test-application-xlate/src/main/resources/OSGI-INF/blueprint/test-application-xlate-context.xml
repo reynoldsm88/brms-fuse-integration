@@ -9,7 +9,6 @@
 
 	<bean id="xlateRouteBuilder" class="com.redhat.test.application.xlate.routes.XlateRouteBuilder">
 		<property name="rulesService" ref="droolsService" />
-		<property name="droolsPrepBean" ref="droolsRequestHelper" />
 	</bean>
 
 	<camelContext xmlns="http://camel.apache.org/schema/blueprint" id="test-application-xlate-context">
