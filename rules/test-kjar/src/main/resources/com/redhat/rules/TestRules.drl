@@ -7,7 +7,7 @@ import com.redhat.drools.camel.model.MyOtherModelObj;
 
 //declare any global variables here
 
-rule "Your First Rule"
+rule "Most People are Neutral"
 	salience -100
     when
     	not( exists MyOtherModelObj() )
