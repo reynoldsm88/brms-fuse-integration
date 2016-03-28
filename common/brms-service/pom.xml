@@ -103,7 +103,8 @@
 							org.kie.internal.command,
 							org.osgi.service.blueprint,
 							com.redhat.drools.camel.model,
-							org.apache.camel
+							org.apache.camel,
+							org.apache.camel.impl
 						</Import-Package>
 						<Export-Package>
 							com.redhat.drools.camel.api
