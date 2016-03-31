@@ -31,7 +31,7 @@ public class DroolsBRMSServiceTest extends CamelBlueprintTestSupport {
         Exchange recieved = mock.assertExchangeReceived( 0 );
 
         ArrayList<MyOtherModelObj> results = (ArrayList<MyOtherModelObj>) recieved.getIn().getBody();
-        MyOtherModelObj expected = new MyOtherModelObj( "value", "Default" );
+        MyOtherModelObj expected = new MyOtherModelObj( "value", "Normal" );
         assertTrue( results.contains( expected ) );
 
         mock.assertIsSatisfied();

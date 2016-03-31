@@ -1,0 +1,30 @@
+1) Core models and common code should be in separate repositories and should be maintained separately from applications
+2) Camel applications should perform only a few specific functions very well, but should be limited in scope (ie: small number of routes)
+3) Complex integrations should be built by composing smaller applications together, reusing existing integration flows and interfaces if possible
+4) Business rules should have a push based deployment (ie: a user must take an action to push new rules out, rules should not be pulled)
+5) Rules for a given domain should be shared via a shared service for that business domain
+6) The development of applications for repetive or similar scenarios should be automated using Maven archetypes and configuration
+
+Discrete Composable applications vs. Microservices
+
+Project structure
+
+models - Schemas, JAXB objects, domain models
+    \_ test-app-model
+
+common - libraries reused across many applications
+    \_ test-app-brms service
+
+applications - camel integration flows
+    \_ test-application-in
+     _ test application-xlate
+     _ test-application-out
+
+rules (this is not part of any project, it should be hosted in BRMS Business Central)
+    \_ test-application-rules
+     _ other domain rules and BPM processes
+
+Next steps
+    - get rid of JMX based push service, move to storing knowledge bases in JDG
+    - Implement better BRMS/Drools OSGI integration (https://issues.jboss.org/browse/DROOLS-969) OR roll a custom BRMS Drools camel component
+    - Implement kickstarter Maven archetypes
