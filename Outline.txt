@@ -28,3 +28,9 @@ Next steps
     - get rid of JMX based push service, move to storing knowledge bases in JDG
     - Implement better BRMS/Drools OSGI integration (https://issues.jboss.org/browse/DROOLS-969) OR roll a custom BRMS Drools camel component
     - Implement kickstarter Maven archetypes
+    
+Issues:
+https://access.redhat.com/support/cases/#/case/01602693 - BRMS artifact resolution plugging into Fabric infrastructure
+https://access.redhat.com/support/cases/#/case/01553753 - Fabric starts bundles in alphabetical order, causing application bundles to load before the BRMS infrastructure loads.
+https://issues.jboss.org/browse/DROOLS-969 add better support for the kie namespace in Blueprint
+
