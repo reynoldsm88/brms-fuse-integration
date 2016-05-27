@@ -9,7 +9,6 @@
 		<property name="rulesService" ref="droolsService" />
 	</bean>
 
-
 	<camelContext xmlns="http://camel.apache.org/schema/blueprint">
 		<routeBuilder ref="droolsTestRouteBuilder" />
 	</camelContext>

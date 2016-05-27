@@ -15,12 +15,12 @@ public class XlateRouteBuilder extends RouteBuilder {
     public void configure() throws Exception {
         
         //@formatter:off
-        from( "vm:test-application-xlate" ).id( "test-application-xlate" ).routeId( "test-application-xlate" )
+        from( "amq:queue:xlate" ).id( "test-application-xlate" ).routeId( "test-application-xlate" )
                 .bean( droolsPrepBean, "prepare" ).log( "1) ${body}" )
                 .bean( rulesService, "execute" ).log( "2) ${body}" )
                 .setBody( simple( "${body.getMyOtherModelObjResults}" ) )
                 .log( "3) ${body}" )
-            .to( "vm:test-application-outbound" );
+            .to( "amq:queue:outbound" );
 //            .to( "vm:test-application-outbound" );
         //@formatter:on
     }

@@ -13,10 +13,10 @@ public class InboundRouteBuilder extends RouteBuilder {
         getContext().getTypeConverterRegistry().addTypeConverter( MyModelObj.class, String.class, new StringToModelTypeConverter() );
 
         //@formatter:off
-        from("activemq:queue:test-application-inbound").routeId( "test-application-inbound" ).id( "test-application-inbound" )
+        from("amq:queue:test-application-inbound").routeId( "test-application-inbound" ).id( "test-application-inbound" )
                 .convertBodyTo( MyModelObj.class )
                 .log( "${body}" )
-            .to( "vm:test-application-xlate" );
+            .to( "amq:queue:xlate" );
         //@formatter:on
 
     }

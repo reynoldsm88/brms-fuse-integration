@@ -1,5 +1,5 @@
 1) Core models and common code should be in separate repositories and should be maintained separately from applications
-2) Camel applications should perform only a few specific functions very well, but should be limited in scope (ie: small number of routes)
+2) Camel bundles should perform only a few specific functions very well, but should be limited in scope (ie: small number of routes)
 3) Complex integrations should be built by composing smaller applications together, reusing existing integration flows and interfaces if possible
 4) Business rules should have a push based deployment (ie: a user must take an action to push new rules out, rules should not be pulled)
 5) Rules for a given domain should be shared via a shared service for that business domain
@@ -16,16 +16,16 @@ common - libraries reused across many applications
     \_ test-app-brms service
 
 applications - camel integration flows
-    \_ test-application-in
-     _ test application-xlate
-     _ test-application-out
+    \_ test-application-in - REST, SOAP JMS, TCP, etc... use Camel components to transform into domain model
+     _ test application-xlate - actual processing, enrichment, business rules, etc...
+     _ test-application-out - JDBC, JMS, REST, SOAP to downstream systems.
 
 rules (this is not part of any project, it should be hosted in BRMS Business Central)
-    \_ test-application-rules
-     _ other domain rules and BPM processes
+    \_ test-application-rules - business rules, BPM processes, decision tables
+
 
 Next steps
-    - get rid of JMX based push service, move to storing knowledge bases in JDG
+    - get rid of JMX based push service, possibly move retrieving knowledge sessions from JDG
     - Implement better BRMS/Drools OSGI integration (https://issues.jboss.org/browse/DROOLS-969) OR roll a custom BRMS Drools camel component
     - Implement kickstarter Maven archetypes
     
@@ -34,3 +34,4 @@ https://access.redhat.com/support/cases/#/case/01602693 - BRMS artifact resoluti
 https://access.redhat.com/support/cases/#/case/01553753 - Fabric starts bundles in alphabetical order, causing application bundles to load before the BRMS infrastructure loads.
 https://issues.jboss.org/browse/DROOLS-969 add better support for the kie namespace in Blueprint
 
+Raymond Ploski

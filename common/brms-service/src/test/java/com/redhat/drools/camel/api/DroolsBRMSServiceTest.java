@@ -6,11 +6,13 @@ import org.apache.camel.Exchange;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.blueprint.CamelBlueprintTestSupport;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.redhat.drools.camel.model.MyModelObj;
 import com.redhat.drools.camel.model.MyOtherModelObj;
 
+@Ignore
 public class DroolsBRMSServiceTest extends CamelBlueprintTestSupport {
 
     @Override
